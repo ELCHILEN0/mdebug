@@ -51,20 +51,3 @@ DOCKER_IMAGE = toolchain
 DOCKER_BUILD = /root/build
 start-toolchain:
 	docker run --rm -it -v $(CURDIR):$(DOCKER_BUILD) -w $(DOCKER_BUILD) $(DOCKER_IMAGE)
-
-# GDB_HOST = localhost
-GDB_HOST = docker.for.mac.host.internal
-
-gdb-core-0:
-	$(TOOLCHAIN)-gdb $(BUILD)/$(TARGET).elf -tui -ex="target remote $(GDB_HOST):3333" -ex=continue
-
-gdb-core-1:
-	$(TOOLCHAIN)-gdb $(BUILD)/$(TARGET).elf -ex="target remote $(GDB_HOST):3334" -ex=continue
-	
-gdb-core-2:
-	$(TOOLCHAIN)-gdb $(BUILD)/$(TARGET).elf -ex="target remote $(GDB_HOST):3335" -ex=continue
-	
-gdb-core-3:
-	$(TOOLCHAIN)-gdb $(BUILD)/$(TARGET).elf -ex="target remote $(GDB_HOST):3336" -ex=continue
-
-
